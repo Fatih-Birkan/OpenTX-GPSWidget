@@ -32,7 +32,7 @@ Horus, Radiomaster TX16, Jumper T16 gibi renkli ekran radyolar için GPS Widgeti
 - Sesli uyarılar ve GPS günlüğü Widget ayarlarından açılıp kapanabilir.
 
 # Nasıl yüklenir
-- Son sürümü indirin.
+- Son sürümü [indirin.](https://github.com/Fatih-Birkan/OpenTX-GPSWidget/files/6017630/GPSWidget.zip)
 - GPSWidget klasörünü SD kartta Widgets klasörü içerisine kopyalayın.
 - Widget kurulumu ekranından aktif edin.
 
