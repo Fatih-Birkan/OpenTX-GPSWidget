@@ -9,7 +9,7 @@ local data = {
     gps = {},
     satellite = 0,
     alt = 0,
-    hdop = 0,
+    hdop = 0
 }
 local image = {
     bg,
@@ -26,10 +26,17 @@ local logTimer = getTime()
 local logOk = false
 
 local function gpsLog()
+
     local today = getDateTime()
-    local f = io.open(dir .. "log/" .. today.year .. today.mon .. today.day .. ".csv", "a")
+    local f = io.open(dir .. "log/" .. today.year .. 
+                     ((today.mon < 10) and "0" or "") .. today.mon ..
+                     ((today.day < 10) and "0" or "") .. today.day .. ".csv", "a")
+
     if(f) then
-         local fw = io.write(f, data.gps.lat, ",", data.gps.lon, ",", today.hour, ":", today.min, ":", today.sec, "\r\n")
+         local fw = io.write(f, data.gps.lat, ",", data.gps.lon, ",", 
+                            ((today.hour < 10) and "0" or "") , today.hour, ":", 
+                            ((today.min < 10) and "0" or "") , today.min, ":", 
+                            ((today.sec < 10) and "0" or "") , today.sec, "\r\n")
          if(not fw) then
             io.close(f)
             return false
@@ -37,6 +44,7 @@ local function gpsLog()
     else
         return false
     end
+
     io.close(f)
     return true
 end
@@ -64,6 +72,7 @@ local function updateWgt(wgt, options)
 end
 
 local function backgroundWgt(wgt)
+
     if(not data.telem) then return end
 
     local gpsTemp = getValue(data.gpsId)
@@ -88,11 +97,18 @@ local function backgroundWgt(wgt)
 end
 
 local function refreshWgt(wgt)
+
+    if(wgt.zone.w < 180) then 
+        lcd.drawText(wgt.zone.x, wgt.zone.y, "Need more space.")
+        return
+    end
+
     lcd.drawBitmap(image.bg, wgt.zone.x, wgt.zone.y)
     if(not data.telem) then 
         lcd.drawText(wgt.zone.x, wgt.zone.y, "No telemetry data.")
         return 
     end
+    
     backgroundWgt(wgt)
 
     if(data.gpsFix and not data.gpsFixPrev) then
@@ -108,15 +124,22 @@ local function refreshWgt(wgt)
             playFile(dir .. "sound/bad.wav")
         end
     end
+    
     lcd.drawBitmap(data.gpsFix and image.gpsGreen or image.gpsRed, wgt.zone.x + (wgt.zone.w - 25), wgt.zone.y + 5)
-
-    lcd.drawText(wgt.zone.x, wgt.zone.y, "Sat:" .. (data.satellite % 100) .. " Hdop:" .. data.hdop, SHADOWED)
-    lcd.drawText(wgt.zone.x, wgt.zone.y + 16, "GPS Alt:" .. string.format("%.1f", data.alt) .. "m ", SHADOWED)
-    lcd.drawText(wgt.zone.x, wgt.zone.y + 36, "Lat:" .. (data.gps.lat and string.format("%.6f", data.gps.lat) or "No data.") .. " ", SMLSIZE)
-    lcd.drawText(wgt.zone.x, wgt.zone.y + 48, "Lon:" .. (data.gps.lon and string.format("%.6f", data.gps.lon) or "No data.") .. " ", SMLSIZE)
-
-    lcd.drawBitmap(logOk and image.logGreen or image.logRed, wgt.zone.x + (wgt.zone.w - 68), wgt.zone.y + 40)
+    lcd.drawText(wgt.zone.x + 1, wgt.zone.y, "Sat:" .. (data.satellite % 100) .. " Hdop:" .. 
+                (data.hdop == 5.5 and ">" or "") .. (data.hdop == 1.0 and "<=" or "") .. data.hdop, SHADOWED)
+    lcd.drawText(wgt.zone.x + 1, wgt.zone.y + 16, "GPS Alt:" .. string.format("%.1f", data.alt) .. "m ", SHADOWED)
+    lcd.drawText(wgt.zone.x + 1, wgt.zone.y + 36, "Lat:" .. (data.gps.lat and string.format("%.6f", data.gps.lat) or "No data.") .. " ", SMLSIZE)
+    lcd.drawText(wgt.zone.x + 1, wgt.zone.y + 48, "Lon:" .. (data.gps.lon and string.format("%.6f", data.gps.lon) or "No data.") .. " ", SMLSIZE)
+    
+    if(wgt.options.GpsLog == 1) then
+        if(data.gpsFix) then
+            lcd.drawBitmap(logOk and image.logGreen or image.logRed, wgt.zone.x + (wgt.zone.w - 68), wgt.zone.y + 40)
+        else
+            lcd.drawBitmap(image.logRed, wgt.zone.x + (wgt.zone.w - 68), wgt.zone.y + 40)
+        end
+    end
 
 end
 
-return {name="GPS", options=options, create=createWgt, update=updateWgt, refresh=refreshWgt, background=backgroundWgt}
+return {name="GPSWidget", options=options, create=createWgt, update=updateWgt, refresh=refreshWgt, background=backgroundWgt}
