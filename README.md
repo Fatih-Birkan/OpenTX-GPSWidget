@@ -21,7 +21,7 @@ Currently works with INAV and tested with Frsky receivers.
 # OpenTX-GPSWidget
 Horus, Radiomaster TX16, Jumper T16 gibi renkli ekran radyolar için GPS Widgeti
 
-# Nasıl çalışır 
+## Nasıl çalışır 
 - GPS durumunu, koordinatlarını, yüksekliğini ve hdop verisini ekranda gösterir.
 - Telemetri alınamadığında son GPS verisini ekranda gösterir.
 - Sesli uyarılar: GPS durumu değiştiğinde uyarı verir.
@@ -31,7 +31,7 @@ Horus, Radiomaster TX16, Jumper T16 gibi renkli ekran radyolar için GPS Widgeti
     Kayıt durumunu ekranda gösterir. 
 - Sesli uyarılar ve GPS günlüğü Widget ayarlarından açılıp kapanabilir.
 
-# Nasıl yüklenir
+## Nasıl yüklenir
 - Son sürümü [indirin.](https://github.com/Fatih-Birkan/OpenTX-GPSWidget/files/6017630/GPSWidget.zip)
 - GPSWidget klasörünü SD kartta Widgets klasörü içerisine kopyalayın.
 - Widget kurulumu ekranından aktif edin.
