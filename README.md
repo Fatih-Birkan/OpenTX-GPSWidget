@@ -12,7 +12,7 @@ A GPS Widget for OpenTX radios with color screen like Horus, Radiomaster TX16, J
 - Sound alerts and GPS Log features can be enabled or disabled from widget settings.
 
 # How to install
-- Download latest release.
+- [Download](https://github.com/Fatih-Birkan/OpenTX-GPSWidget/files/6017630/GPSWidget.zip) latest release.
 - Copy GPSWidget folder to Widgets folder on SD Card root.
 - Enable GPSWidget from Setup widgets screen.
 
