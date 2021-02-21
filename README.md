@@ -1,7 +1,7 @@
 # OpenTX-GPSWidget
 A GPS Widget for OpenTX radios with color screen like Horus, Radiomaster TX16, Jumper T16
 
-# How does it works
+## How does it works
 - Shows GPS fix status, latitude, longtitude, GPS Altitude, satellite and hdop data on screen.
 - If telemetry loses it continues to display latest GPS data.
 - Sound alerts: when GPS fix or unfix it will inform you with sound alerts. 
@@ -11,7 +11,7 @@ A GPS Widget for OpenTX radios with color screen like Horus, Radiomaster TX16, J
     Shows logging status on screen.
 - Sound alerts and GPS Log features can be enabled or disabled from widget settings.
 
-# How to install
+## How to install
 - [Download](https://github.com/Fatih-Birkan/OpenTX-GPSWidget/files/6017630/GPSWidget.zip) latest release.
 - Copy GPSWidget folder to Widgets folder on SD Card root.
 - Enable GPSWidget from Setup widgets screen.
