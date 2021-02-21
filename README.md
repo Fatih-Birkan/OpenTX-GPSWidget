@@ -37,3 +37,19 @@ Horus, Radiomaster TX16, Jumper T16 gibi renkli ekran radyolar için GPS Widgeti
 - Widget kurulumu ekranından aktif edin.
 
 Şimdilik INAV ile çalışmaktadır ve Frsky alıcılar ile test edilmiştir.
+
+# Screenshots
+#### Default view
+![sample](assets/screen-working.png)
+
+#### Settings
+![sample](assets/screen-settings.png)
+
+#### No data
+![sample](assets/screen-nodata.png)
+
+#### Telemetry lost
+![sample](assets/screen-telemetrylost.png)
+
+#### No fix
+![sample](assets/screen-nofix.png)
