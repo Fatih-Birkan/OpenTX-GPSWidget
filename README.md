@@ -14,6 +14,27 @@ A GPS Widget for OpenTX radios with color screen like Horus, Radiomaster TX16, J
 # How to install
 - Download latest release.
 - Copy GPSWidget folder to Widgets folder on SD Card root.
-- Enable GPSWidget from Widgets screen.
+- Enable GPSWidget from Setup widgets screen.
 
 Currently works with INAV and tested with Frsky receivers.
+
+# OpenTX-GPSWidget
+Horus, Radiomaster TX16, Jumper T16 gibi renkli ekran radyolar için GPS Widgeti
+
+# Nasıl çalışır 
+- GPS durumunu, koordinatlarını, yüksekliğini ve hdop verisini ekranda gösterir.
+- Telemetri alınamadığında son GPS verisini ekranda gösterir.
+- Sesli uyarılar: GPS durumu değiştiğinde uyarı verir.
+- GPS Kaydı: 
+    Sağlıklı GPS verisi alındığında bu verileri SD karta kaydeder.
+    Her uçuş günü için ayrı bir günlük dosyası oluşturur. (Widget klasörü içinde log klasöründe.)
+    Kayıt durumunu ekranda gösterir. 
+- Sesli uyarılar ve GPS günlüğü Widget ayarlarından açılıp kapanabilir.
+
+# Nasıl yüklenir
+- Son sürümü indirin.
+- GPSWidget klasörünü SD kartta Widgets klasörü içerisine kopyalayın.
+- Enable GPSWidget from Widgets screen.
+- Widget kurulumu ekranından aktif edin.
+
+Şimdilik INAV ile çalışmaktadır ve FrSKY alıcılar ile test edilmiştir.
