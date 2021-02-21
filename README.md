@@ -34,7 +34,6 @@ Horus, Radiomaster TX16, Jumper T16 gibi renkli ekran radyolar için GPS Widgeti
 # Nasıl yüklenir
 - Son sürümü indirin.
 - GPSWidget klasörünü SD kartta Widgets klasörü içerisine kopyalayın.
-- Enable GPSWidget from Widgets screen.
 - Widget kurulumu ekranından aktif edin.
 
 Şimdilik INAV ile çalışmaktadır ve FrSKY alıcılar ile test edilmiştir.
